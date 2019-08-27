@@ -3,9 +3,9 @@ import styled from 'styled-components'
 export const Anchor = styled.a`
     display: flex;
     flex-direction: column;
-    text-aling: center
+    text-align: center
     text-decoration: none;
-    width: 75px
+    width: 75px;
     `
 
 export const Image = styled.img`

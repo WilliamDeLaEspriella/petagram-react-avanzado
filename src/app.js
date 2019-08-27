@@ -1,4 +1,11 @@
 import React from 'react'
-import {Category} from './componets/Category'
-export const App = () =>(<Category/>);
+import {ListOfCategory} from './componets/ListOfCategory'
+import { GlobalStyles } from './GlobalStyles';
+
+export const App = () =>(
+    <div>
+ <GlobalStyles />
+<ListOfCategory/>
+    </div>
+   );
 
