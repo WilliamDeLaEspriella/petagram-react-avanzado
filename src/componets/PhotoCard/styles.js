@@ -30,3 +30,6 @@ export const Button = styled.button`
         margin-right: 4px;
     }
 `
+export const Article = styled.article`
+    min-height:200px;
+`
