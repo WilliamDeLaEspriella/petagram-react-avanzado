@@ -34,8 +34,11 @@
     "webpack-dev-server": "^3.8.0"
   },
   "dependencies": {
+    "apollo-boost": "^0.4.4",
+    "graphql": "^14.5.3",
     "intersection-observer": "^0.7.0",
     "react": "^16.9.0",
+    "react-apollo": "^3.0.1",
     "react-dom": "^16.9.0",
     "react-icons": "^3.7.0",
     "styled-components": "^4.3.2"
