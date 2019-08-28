@@ -1,23 +1,7 @@
 import React from 'react'
 import { PhotoCard } from '../PhotoCard'
-import { graphql } from 'react-apollo'
-import { gql } from 'apollo-boost'
 
-const withPhoto = graphql(gql`
-query getFotos{
-    photos{
-      id
-      categoryId
-      src
-      likes
-      userId
-      liked
-    }
-  }
-`
-)
-const ListOfPhotoCardComponent = ({ data: { photos = [] } }) => {
-  console.log(photos)
+export const ListOfPhotoCardComponent = ({ data: { photos = [] } }) => {
   return (
     <ul>
       {
@@ -26,5 +10,3 @@ const ListOfPhotoCardComponent = ({ data: { photos = [] } }) => {
     </ul>
   )
 }
-
-export const ListOfPhotoCard = withPhoto(ListOfPhotoCardComponent)
