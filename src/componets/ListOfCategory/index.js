@@ -4,16 +4,9 @@ import {  List, Item } from "./styles";
 // import { categories as mockCategories }  from '../../../api/db.json'
 
 export const ListOfCategory = ()=>{
-    const [categories, setCategories] = useState([])
+    const {categories, loading} = useCategoriesData()
     const [showFixed, setShowFixed] = useState(false)
 
-   useEffect(()=>{
-       window.fetch('https://petgram-api-example.now.sh/categories')
-       .then(res => res.json())
-       .then(response => {
-           setCategories(response)
-       })
-   },[])
 
    useEffect(()=>{
        
@@ -25,15 +18,33 @@ export const ListOfCategory = ()=>{
        return ()=> document.removeEventListener('scroll',onScroll)
    },[showFixed])
 
+   function useCategoriesData(){
+    const [categories, setCategories] = useState([])
+    const [loading, setloading] = useState(false)
+    useEffect(()=>{
+        setloading(true)
+        window.fetch('https://petgram-api-example.now.sh/categories')
+        .then(res => res.json())
+        .then(response => {
+            setCategories(response)
+            setloading(false)
+        })
+    },[])
+    return {categories, loading}
+ 
+    }
    const renderList =(fixed )=>(
-       <List className= {fixed ? 'fixed' : ''}>
+       <List fixed={fixed}>
         {
             categories.map(category => (<Item key = {category.id}> <Category { ...category }/></Item>))
         }
     </List>
    )
-
+if (loading){
+    return <div>cargando ...</div>
+}
 return(
+    
     <Fragment>
         {renderList()}
         {showFixed && renderList(true)}
