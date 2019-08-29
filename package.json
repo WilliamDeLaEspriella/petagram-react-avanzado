@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "lint": "standard",
-    "build:dev": "webpack-dev-server"
+    "build:dev": "webpack-dev-server --history-api-fallback"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
     "webpack-dev-server": "^3.8.0"
   },
   "dependencies": {
+    "@reach/router": "^1.2.1",
     "apollo-boost": "^0.4.4",
     "graphql": "^14.5.3",
     "intersection-observer": "^0.7.0",
