@@ -1,12 +1,16 @@
 import React from 'react'
 import { GlobalStyles } from './styles/GlobalStyles'
 import { Logo } from './componets/Logo'
-import { PhotoCardWithQuery } from './container/PhotoCardWithQuery'
 import { Home } from './pages/Home'
 import { Router } from '@reach/router'
 import { Detail } from './pages/Detail'
 import { NavBar } from './componets/NavBar'
-
+import { Favs } from './pages/Favs'
+import { User } from './pages/User'
+import { NotRegisteredUser } from './pages/NotRegisteredUser'
+const UserLog = ({ children }) => {
+  return children({ isAuth: true })
+}
 export const App = () => {
   // const urlParams = new window.URLSearchParams(window.location.search)
   // const detailId = urlParams.get('details')
@@ -19,7 +23,28 @@ export const App = () => {
         <Home path='/' />
         <Home path='/pet/:id' />
         <Detail path='/detail/:detailId' />
+        {/* <NotRegisteredUser path='/favs' />
+        <NotRegisteredUser path='/user' />
+        <Favs path='/favs' />
+        <User path='/user' /> */}
       </Router>
+      <UserLog>
+        {
+          ({ isAuth }) =>
+            isAuth
+              ? (
+                <Router>
+                  <Favs path='/favs' />
+                  <User path='/user' />
+                </Router>
+              ) : (
+                <Router>
+                  <NotRegisteredUser path='/favs' />
+                  <NotRegisteredUser path='/user' />
+                </Router>
+              )
+        }
+      </UserLog>
       <NavBar />
 
     </div>
