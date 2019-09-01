@@ -5,7 +5,7 @@ export const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
-    , ::before, *::after {
+    *, ::before, *::after {
         box-sizing: inherit;
     }
     ul, li, h1, h2, h3, p, button {
