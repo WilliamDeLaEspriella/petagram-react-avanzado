@@ -26,7 +26,7 @@ export const App = () => {
         {!isAuth && <NotRegisteredUser path='/login' />}
         {!isAuth && <Redirect from='/favs' to='/login' noThrow />}
         {!isAuth && <Redirect from='/user' to='/login' noThrow />}
-        {isAuth && <Redirect from='/login' to='/' />}
+        {isAuth && <Redirect from='/login' to='/' noThrow />}
         <Favs path='/favs' />
         <User path='/user' />
       </Router>
