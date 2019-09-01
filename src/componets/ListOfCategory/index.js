@@ -3,7 +3,7 @@ import { Category } from '../Category'
 import { List, Item } from './styles'
 // import { categories as mockCategories }  from '../../../api/db.json'
 
-export const ListOfCategory = () => {
+const ListOfCategoryComponent = () => {
   const { categories, loading } = useCategoriesData()
   const [showFixed, setShowFixed] = useState(false)
 
@@ -49,3 +49,5 @@ export const ListOfCategory = () => {
 
   )
 }
+
+export const ListOfCategory = React.memo(ListOfCategoryComponent)
